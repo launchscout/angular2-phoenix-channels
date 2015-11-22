@@ -8,7 +8,7 @@
     "build": "mkdir -p dist && rollup -e angular2,phoenix_js lib/index.js | babel -m umd --module-id angular2-phoenix-channels -o dist/angular2-phoenix-channels.js",
     "pretest": "eslint lib test",
     "test": "mocha --compilers js:babel/register --recursive test",
-    "prepublish": "npm run build && npm test"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
