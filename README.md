@@ -7,7 +7,7 @@ A package that lets you use Phoenix channels as Angular 2 Observables.
 When you bootstrap your app, you'll need to setup a provider and pass
 in your websocket uri.
 
-```
+```javascript
 let phoenixChannelsProvider = provide(PhoenixChannels, { useFactory: () => {
   return new PhoenixChannels("ws://localhost:4000/socket");
 } });
@@ -30,7 +30,7 @@ class CandidateService {
 
 Join a channel.
 
-```
+```javascript
 let allCandidatesChannel = this.phoenixChannels.channel("candidates:all");
 allCandidatesChannel.join();
 ```
@@ -43,7 +43,7 @@ let phoenixObservable = this.allCandidatesChannel.observeMessage("change").map( 
 
 You can merge this observable with other observables.
 
-```javacript
+```javascript
 getCandidates() {
   let httpObservable = this.http.get('http://localhost:4000/candidates').map( (resp) => resp.json());
   let phoenixObservable = this.allCandidatesChannel.observeMessage("change").map( (resp) => resp.candidates );
