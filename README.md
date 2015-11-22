@@ -19,7 +19,7 @@ bootstrap(MyAppComponent, [phoenixChannelsProvider]);
 
 Have your service injected with PhoenixChannels
 
-```
+```typescript
 @Injectable()
 class CandidateService {
   constructor(http: Http, phoenixChannels: PhoenixChannels) {
@@ -37,13 +37,13 @@ allCandidatesChannel.join();
 
 Observe messages. `observeMessage` returns an observable can call subscribe
 or any other observable operators on.
-```
+```javascript
 let phoenixObservable = this.allCandidatesChannel.observeMessage("change").map( (resp) => resp.candidates );
 ```
 
 You can merge this observable with other observables.
 
-```
+```javacript
 getCandidates() {
   let httpObservable = this.http.get('http://localhost:4000/candidates').map( (resp) => resp.json());
   let phoenixObservable = this.allCandidatesChannel.observeMessage("change").map( (resp) => resp.candidates );
