@@ -52,5 +52,7 @@ getCandidates() {
 ```
 
 ## Examples
+
 Angular 2 app: http://github.com/gaslight/campg-angular2.git
+
 Phoenix server for above app: http://github.com/superchris/hirem_server.git
